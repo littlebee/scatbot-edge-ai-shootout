@@ -3,6 +3,10 @@
 # this script is meant to be run from your local development machine,
 # in the scatbot project root dir
 #
+# parameters:
+# <user@host> - required.
+# <user> - optional. If user home directory is not /home/pi, provide the username only.
+#
 # example:
 # ./upload.sh pi@raspberrypi.local
 
@@ -25,7 +29,7 @@ set -x
 # stop on errors
 set -e
 
-TARGET_DIR="/home/$targetUser/scatbot-ai-shootout"
+TARGET_DIR="/home/$targetUser/scatbot-edge-ai-shootout"
 TARGET_HOST=$1
 
 rsync --progress --partial -avz \

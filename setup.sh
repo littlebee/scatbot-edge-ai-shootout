@@ -20,8 +20,8 @@ set -e
 DATA_DIR="./data"
 TFLITE_DATA_DIR="$DATA_DIR/tflite"
 
-sudo apt-get update
-sudo apt-get -y upgrade
+#sudo apt-get update
+#sudo apt-get -y upgrade
 
 log 'Installing OS prerequisites'
 sudo apt install -y python3-pip git
@@ -39,6 +39,7 @@ sudo pip3 install matplotlib
 sudo pip3 install werkzeug==2.0.3
 
 log 'Installing tensor flow lite (https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/raspberry_pi)'
+sudo apt-get install -y libasound-dev portaudio19-dev libportaudio2 libportaudiocpp0
 sudo pip3 install tflite-support==0.4.0
 sudo pip3 install "protobuf>=3.18.0,<4"
 
@@ -85,4 +86,4 @@ log 'Done'
 set +x
 echo "Be sure to run "
 echo "  sudo raspi-config "
-echo "and ENABLE 'Legacy Camera Support' under 'Interfaces'" "
+echo "and ENABLE 'Legacy Camera Support' under 'Interfaces'"
