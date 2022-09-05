@@ -1,3 +1,16 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [scatbot-edge-ai-shootout](#scatbot-edge-ai-shootout)
+  - [Why?](#why)
+  - [Why would you do it at the edge?](#why-would-you-do-it-at-the-edge)
+  - [Testing ethos and methods](#testing-ethos-and-methods)
+  - [Hardware Configurations Tested](#hardware-configurations-tested)
+    - [Raspberry Pi 4b](#raspberry-pi-4b)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # scatbot-edge-ai-shootout
 
 A place to chronicle performance of various hardware and software solutions for using computer vision and AI at the edge for object detection.

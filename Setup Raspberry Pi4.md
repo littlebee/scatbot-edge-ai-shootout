@@ -53,7 +53,7 @@ cd scatbot-edge-ai-shootout
 
 So you want to know all of the things and see them installing in all their glories? Are you the type of person that likes watching long builds? We've got just the thing for you!
 
-I've tried to script out the setup and install that I went through to get all of the ML frameworks working. I cannot guarantee that it works. As things change, new minor versions of dependent libs break; developers of libraries or make changes that break other libraries.... But you probably know about all of that.
+I've tried to script out the setup and install that I went through to get all of the ML frameworks working. I cannot guarantee that it still works. As things change, new minor versions of dependent libs break; developers of libraries make changes that break other libraries.... But you probably know about all of that.
 
 Start with Raspian Bullseye OS LITE 64 without desktop. When installing without the desktop, be sure to go into the config of Raspbery Pi Imager and enable SSL and setup your wifi.
 
