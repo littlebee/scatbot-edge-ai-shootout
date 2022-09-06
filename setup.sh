@@ -72,13 +72,10 @@ sudo apt-get install -y python3-pycoral
 
 
 if [ ! -d "yolov5" ]; then
-log \
-"Installing yolo v5 (https://www.section.io/engineering-education/object-detection-with-yolov5-and-pytorch/)
-we are using a custom fork that allows detect(view_img=false) to work for headless"
-
-  git clone https://github.com/littlebee/yolov5.git
+  log "Installing yolo v5 (https://github.com/ultralytics/yolov5)"
+  git clone https://github.com/ultralytics/yolov5
   cd yolov5
-  pip install -r requirements.txt
+  sudo pip3 install -r requirements.txt
   cd ..
 fi
 
