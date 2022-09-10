@@ -62,12 +62,14 @@ Start with Raspian Bullseye OS LITE 64 without desktop. When installing without 
 Once you've signed in via ssl to your newly built raspbian OS,
 
 ```
+#sudo apt-get update
+#sudo apt-get -y upgrade
 sudo apt install -y git
 git clone https://github.com/littlebee/scatbot-edge-ai-shootout.git
 cd scatbot-edge-ai-shootout
 ./setup.sh
 ```
 
-...to install all of the things. ** Add estimate of build time **
+...to install all of the things. This will take a while. Go watch an episode of The Expanse.
 
 https://github.com/littlebee/scatbot-edge-ai-shootout/blob/main/setup.sh
