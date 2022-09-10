@@ -53,6 +53,8 @@ In case you are wondering if upgrading to a Pi 4b w/8GB will improve your perfor
 
 I build bots to train and entertain my canine housemate. Robotics automation routines like tracking and following your pet around the house require that we be able detect when a dog or cat is in the field of view (FOV) and, even more important, where in the FOV - how many degrees off center - the detected object is.
 
+The higher the performance of object detection correlates to a higher chance of successfully tracking and following an object.
+
 ## Why would you do it at the edge?
 
 It's true that for most applications around the house you could probably just set up a base computer that was much more powerful. All the computer hardware on the bot would do is send sensor data and video back and receive motor commands in.
