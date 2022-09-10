@@ -2,6 +2,7 @@
 
 import torchvision.transforms as T
 import torchvision
+import torch
 
 from lib.camera_benchmark import CameraBenchmark
 from lib.benchmark_args import parse_cmd_line
@@ -26,13 +27,35 @@ COCO_INSTANCE_CATEGORY_NAMES = [
 ]
 
 
+def load_torchvision_model(model_name):
+    # how to dynamically specify the model name as a string eludes me
+    if model_name == "fasterrcnn_resnet50_fpn":
+        print(f"INFO: using model: {model_name}")
+        return torchvision.models.detection.fasterrcnn_resnet50_fpn(weights=torchvision.models.detection.FasterRCNN_ResNet50_FPN_Weights.COCO_V1)
+    if model_name == "fasterrcnn_resnet50_fpn_v2":
+        print(f"INFO: using model: {model_name}")
+        return torchvision.models.detection .fasterrcnn_resnet50_fpn_v2(weights=torchvision.models.detection.FasterRCNN_ResNet50_FPN_V2_Weights.COCO_V1)
+    if model_name == "maskrcnn_resnet50_fpn":
+        print(f"INFO: using model: {model_name}")
+        return torchvision.models.detection.maskrcnn_resnet50_fpn(weights=torchvision.models.detection.MaskRCNN_ResNet50_FPN_Weights.COCO_V1)
+    if model_name == "maskrcnn_resnet50_fpn_v2":
+        print(f"INFO: using model: {model_name}")
+        return torchvision.models.detection.maskrcnn_resnet50_fpn_v2(weights=torchvision.models.detection.MaskRCNN_ResNet50_FPN_V2_Weights.COCO_V1)
+
+    # default model is the fastest I could find in TorchVision
+    print("INFO: using default model: fasterrcnn_mobilenet_v3_large_320_fpn")
+    return torchvision.models.detection.fasterrcnn_mobilenet_v3_large_320_fpn(weights=torchvision.models.detection.FasterRCNN_MobileNet_V3_Large_320_FPN_Weights.COCO_V1)
+
+    return null
+
+
 class PytorchCameraBenchmark(CameraBenchmark):
 
     def __init__(self, args):
-        self.model = torchvision.models.detection.fasterrcnn_mobilenet_v3_large_320_fpn(
-            pretrained=True)
+        self.model = load_torchvision_model(args.model)
         self.model.eval()
         self.transform = T.Compose([T.ToTensor()])
+        torch.set_num_threads(args.num_threads)
 
         super(PytorchCameraBenchmark, self).__init__(args)
 
@@ -64,8 +87,10 @@ class PytorchCameraBenchmark(CameraBenchmark):
         return results
 
     def get_benchmark_name(self):
-        # TODO - remove the model name when I figure out how to dynamically accept this from cl arg
-        return "pytorch (fasterrcnn_mobilenet_v3_large_320_fpn)"
+        return "PyTorch via torchvision"
+
+    def get_model_name(self):
+        return "fasterrcnn_mobilenet_v3_large_320_fpn"
 
 
 if __name__ == "__main__":

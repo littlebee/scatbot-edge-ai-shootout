@@ -1,8 +1,10 @@
 
 # our setup, build and test artifacts
 camera_test_output.avi
+yolov5s.pt
 yolov5/
 data/
+results*.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

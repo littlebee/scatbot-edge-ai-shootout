@@ -37,5 +37,6 @@ rsync --progress --partial -avz \
 --exclude=data/ \
 --exclude=.git \
 --exclude=yolov5 \
+--exclude=results* \
 . $TARGET_HOST:$TARGET_DIR
 

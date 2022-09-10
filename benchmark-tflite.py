@@ -10,20 +10,24 @@ from tflite_support.task import vision
 TF_DATA_DIR = os.path.abspath(os.path.join(
     os.path.dirname(__file__), './data/tflite'))
 
+# Loosely based on Raspberry Pi object detection example
+# See, https://github.com/tensorflow/examples/blob/5d3579cb1057d31c260be4289a32ebc0a91782e0/lite/examples/object_detection/raspberry_pi/detect.py
+
 
 class TfliteCameraBenchmark(CameraBenchmark):
 
     def __init__(self, args):
-        if args.model == None:
-            if args.enable_edge_TPU:
-                model = f"{TF_DATA_DIR}/efficientdet_lite0_edgetpu.tflite"
+        model = args.model
+        if model == None:
+            if args.enable_coral:
+                model = f"{TF_DATA_DIR}/ssd_mobilenet_v1_coco_quant_postprocess_edgetpu.tflite"
             else:
-                model = f"{TF_DATA_DIR}/efficientdet_lite0.tflite"
+                model = f"{TF_DATA_DIR}/ssd_mobilenet_v1_coco_quant_postprocess.tflite"
 
         print(f"INFO: tflite using model {model}")
 
         base_options = core.BaseOptions(
-            file_name=model, use_coral=args.enable_edge_TPU, num_threads=args.num_threads)
+            file_name=model, use_coral=args.enable_coral, num_threads=args.num_threads)
         detection_options = processor.DetectionOptions(
             max_results=3, score_threshold=0.5)
         options = vision.ObjectDetectorOptions(
@@ -55,8 +59,13 @@ class TfliteCameraBenchmark(CameraBenchmark):
         return results
 
     def get_benchmark_name(self):
-        # TODO - remove the model name when I figure out how to dynamically accept this from cl arg
-        return "TensorFlow Lite"
+        name = "TensorFlow Lite via tflite_support"
+        if self.args.enable_coral:
+            name += " w/Coral TPU"
+        return name
+
+    def get_model_name(self):
+        return self.args.model or ("efficientdet_lite0_edgetpu.tflite" if self.args.enable_coral else "efficientdet_lite0.tflite")
 
 
 if __name__ == "__main__":

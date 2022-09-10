@@ -11,6 +11,8 @@ class Yolov5CameraBenchmark(CameraBenchmark):
 
     def __init__(self, args):
         self.model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
+        torch.set_num_threads(args.num_threads)
+
         super(Yolov5CameraBenchmark, self).__init__(args)
 
     def get_prediction(self, img):
@@ -34,8 +36,10 @@ class Yolov5CameraBenchmark(CameraBenchmark):
         return results
 
     def get_benchmark_name(self):
-        # TODO - remove the model name when I figure out how to dynamically accept this from cl arg
-        return "Yolo V5"
+        return "YOLOv5 via PyTorch Hub"
+
+    def get_model_name(self):
+        return 'ultralytics/yolov5'
 
 
 if __name__ == "__main__":

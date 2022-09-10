@@ -45,10 +45,13 @@ sudo pip3 install "protobuf>=3.18.0,<4"
 
 # Download TF Lite models
 
+# These models are from the TFLite Example for Raspberry Pi4, but they are much slower that the ones
+# from the Coral models page
+# https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/raspberry_pi
 mkdir -p $TFLITE_DATA_DIR
 FILE=${TFLITE_DATA_DIR}/efficientdet_lite0.tflite
 if [ ! -f "$FILE" ]; then
-  log 'downloading tflight model'
+  log "downloading tflight model $FILE"
   curl \
     -L 'https://tfhub.dev/tensorflow/lite-model/efficientdet/lite0/detection/metadata/1?lite-format=tflite' \
     -o ${FILE}
@@ -56,11 +59,49 @@ fi
 
 FILE=${TFLITE_DATA_DIR}/efficientdet_lite0_edgetpu.tflite
 if [ ! -f "$FILE" ]; then
-  log 'downloading tflight model'
+  log "downloading tflight model $FILE"
   curl \
     -L 'https://storage.googleapis.com/download.tensorflow.org/models/tflite/edgetpu/efficientdet_lite0_edgetpu_metadata.tflite' \
     -o ${FILE}
 fi
+
+# Models from https://coral.ai/models/object-detection/
+# YOU WANT THESE!  winner winner chicken dinner of the shootout so far
+FILE=${TFLITE_DATA_DIR}/ssd_mobilenet_v1_coco_quant_postprocess.tflite
+if [ ! -f "$FILE" ]; then
+  log "downloading tflight model $FILE"
+  curl \
+    -L 'https://raw.githubusercontent.com/google-coral/test_data/master/ssd_mobilenet_v1_coco_quant_postprocess.tflite' \
+    -o ${FILE}
+fi
+
+FILE=${TFLITE_DATA_DIR}/ssd_mobilenet_v1_coco_quant_postprocess_edgetpu.tflite
+if [ ! -f "$FILE" ]; then
+  log "downloading tflight model $FILE"
+  curl \
+    -L 'https://raw.githubusercontent.com/google-coral/test_data/master/ssd_mobilenet_v1_coco_quant_postprocess_edgetpu.tflite' \
+    -o ${FILE}
+fi
+
+## These didn't work - error when trying to load model into tflite:
+##   ValueError: Object detection models require TFLite Model Metadata but none was found
+#
+# FILE=${TFLITE_DATA_DIR}/ssdlite_mobiledet_coco_qat_postprocess.tflite
+# if [ ! -f "$FILE" ]; then
+#   log "downloading tflight model $FILE"
+#   curl \
+#     -L 'https://raw.githubusercontent.com/google-coral/test_data/master/ssdlite_mobiledet_coco_qat_postprocess.tflite' \
+#     -o ${FILE}
+# fi
+
+# FILE=${TFLITE_DATA_DIR}/ssdlite_mobiledet_coco_qat_postprocess_edgetpu.tflite
+# if [ ! -f "$FILE" ]; then
+#   log "downloading tflight model $FILE"
+#   curl \
+#     -L 'https://raw.githubusercontent.com/google-coral/test_data/master/ssdlite_mobiledet_coco_qat_postprocess_edgetpu.tflite' \
+#     -o ${FILE}
+# fi
+
 
 
 log 'Installing coral edge usb tpu (https://coral.ai/docs/accelerator/get-started)'
