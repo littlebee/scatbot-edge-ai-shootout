@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [scatbot-edge-ai-shootout](#scatbot-edge-ai-shootout)
+  - [Disclaimer](#disclaimer)
   - [The Results](#the-results)
   - [Why?](#why)
   - [Why would you do it at the edge?](#why-would-you-do-it-at-the-edge)
