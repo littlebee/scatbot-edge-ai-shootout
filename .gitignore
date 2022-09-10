@@ -6,6 +6,10 @@ yolov5/
 data/
 results*.csv
 
+
+# mac things
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

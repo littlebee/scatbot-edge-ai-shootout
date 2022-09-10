@@ -65,7 +65,7 @@ class TfliteCameraBenchmark(CameraBenchmark):
         return name
 
     def get_model_name(self):
-        return self.args.model or ("efficientdet_lite0_edgetpu.tflite" if self.args.enable_coral else "efficientdet_lite0.tflite")
+        return self.args.model or ("ssd_mobilenet_v1_coco_quant_postprocess_edgetpu.tflite" if self.args.enable_coral else "ssd_mobilenet_v1_coco_quant_postprocess.tflite")
 
 
 if __name__ == "__main__":
