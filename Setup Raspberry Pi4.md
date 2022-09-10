@@ -4,9 +4,7 @@
 
 If you trust me (Why would you??), and accept my 100% assurance that I didn't (would never) hide any trojan horsies ready to jump on your home network and wreak havoc, you can use the disk image .iso from the link below.
 
-** Insert link to disk iso for raspberry pi **
-
-1. Download the .iso.zip file to a local directory (you don't need to unzip)
+1. [Download the .iso.zip file](https://drive.google.com/file/d/1x0tPy3iFA8inaSVATO7jO8zQiFyFZLPC/view?usp=sharing) to a local directory (you don't need to unzip)
 1. Open .iso.zip file with [Balena Etcher](https://www.balena.io/etcher/)
 1. Insert an SSD card >= 16GB into your computer and "Select drive" in Etcher
 1. Flash!
