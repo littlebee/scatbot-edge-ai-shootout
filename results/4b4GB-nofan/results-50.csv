@@ -1,0 +1,41 @@
+name,model,num_threads,enable_coral,frame_height,frame_width,duration,cpu_avail_start,max_cpu_temp,fps
+PyTorch via torchvision,fasterrcnn_mobilenet_v3_large_320_fpn,4,False,480,640,37.99197053909302,100.0,64.27,0.10528540486953884
+YOLOv5 via PyTorch Hub,ultralytics/yolov5,4,False,480,640,30.114821672439575,0,67.679,0.23244368092693196
+TensorFlow Lite via tflite_support,efficientdet_lite0.tflite,4,False,480,640,30.00165557861328,0,71.088,1.299928262219009
+TensorFlow Lite via tflite_support w/Coral TPU,efficientdet_lite0_edgetpu.tflite,4,True,480,640,30.220041751861572,100.0,71.088,4.2025090846268185
+PyTorch via torchvision,fasterrcnn_mobilenet_v3_large_320_fpn,4,False,480,640,38.497713804244995,0,68.653,0.10390227379057858
+YOLOv5 via PyTorch Hub,ultralytics/yolov5,4,False,480,640,34.25814342498779,0,70.601,0.23352111936587966
+TensorFlow Lite via tflite_support,efficientdet_lite0.tflite,4,False,480,640,30.426279544830322,100.0,72.062,1.3146530104367076
+TensorFlow Lite via tflite_support w/Coral TPU,efficientdet_lite0_edgetpu.tflite,4,True,480,640,30.071399688720703,0,71.575,4.48931547574875
+PyTorch via torchvision,fasterrcnn_mobilenet_v3_large_320_fpn,4,False,480,640,38.7323100566864,100.0,70.114,0.1032729520688497
+YOLOv5 via PyTorch Hub,ultralytics/yolov5,4,False,480,640,30.269594192504883,100.0,72.062,0.23125516501748428
+TensorFlow Lite via tflite_support,efficientdet_lite0.tflite,4,False,480,640,30.612789154052734,100.0,73.523,1.3393095217059676
+TensorFlow Lite via tflite_support w/Coral TPU,efficientdet_lite0_edgetpu.tflite,4,True,480,640,30.20180583000183,100.0,73.036,4.503041995750483
+PyTorch via torchvision,fasterrcnn_mobilenet_v3_large_320_fpn,4,False,480,640,39.8684663772583,100.0,70.114,0.10032991894269785
+YOLOv5 via PyTorch Hub,ultralytics/yolov5,4,False,480,640,33.45519471168518,100.0,71.088,0.23912579403418543
+TensorFlow Lite via tflite_support,efficientdet_lite0.tflite,4,False,480,640,30.318332195281982,100.0,73.523,1.3193337859865735
+TensorFlow Lite via tflite_support w/Coral TPU,efficientdet_lite0_edgetpu.tflite,4,True,480,640,30.0631844997406,0,72.062,5.255597589848251
+PyTorch via torchvision,fasterrcnn_mobilenet_v3_large_320_fpn,4,False,480,640,39.42724370956421,100.0,69.627,0.10145269168358541
+YOLOv5 via PyTorch Hub,ultralytics/yolov5,4,False,480,640,30.137738943099976,100.0,70.601,0.23226692663361356
+TensorFlow Lite via tflite_support,efficientdet_lite0.tflite,4,False,480,640,30.58969235420227,100.0,73.036,1.3730115201446358
+TensorFlow Lite via tflite_support w/Coral TPU,efficientdet_lite0_edgetpu.tflite,4,True,480,640,30.062495470046997,100.0,72.062,5.288982085948949
+PyTorch via torchvision,fasterrcnn_mobilenet_v3_large_320_fpn,4,False,480,640,39.74910759925842,100.0,70.601,0.10063119002134845
+YOLOv5 via PyTorch Hub,ultralytics/yolov5,4,False,480,640,30.170334100723267,100.0,71.088,0.2320159921541005
+TensorFlow Lite via tflite_support,efficientdet_lite0.tflite,4,False,480,640,30.150777339935303,100.0,73.036,1.3266656295132797
+TensorFlow Lite via tflite_support w/Coral TPU,efficientdet_lite0_edgetpu.tflite,4,True,480,640,30.088759899139404,100.0,72.062,4.519960292676929
+PyTorch via torchvision,fasterrcnn_mobilenet_v3_large_320_fpn,4,False,480,640,38.32569146156311,0,70.601,0.1043686323053455
+YOLOv5 via PyTorch Hub,ultralytics/yolov5,4,False,480,640,33.809754610061646,100.0,71.575,0.23661810303761366
+TensorFlow Lite via tflite_support,efficientdet_lite0.tflite,4,False,480,640,30.511125087738037,100.0,73.523,1.34377214481931
+TensorFlow Lite via tflite_support w/Coral TPU,efficientdet_lite0_edgetpu.tflite,4,True,480,640,30.059395790100098,100.0,73.036,4.191701020201392
+PyTorch via torchvision,fasterrcnn_mobilenet_v3_large_320_fpn,4,False,480,640,39.495929479599,100.0,71.088,0.10127625941974949
+YOLOv5 via PyTorch Hub,ultralytics/yolov5,4,False,480,640,33.44295287132263,100.0,72.549,0.23921332637047157
+TensorFlow Lite via tflite_support,efficientdet_lite0.tflite,4,False,480,640,30.293476581573486,100.0,73.523,1.3534266986358026
+TensorFlow Lite via tflite_support w/Coral TPU,efficientdet_lite0_edgetpu.tflite,4,True,480,640,30.03851556777954,100.0,72.062,4.494230072567439
+PyTorch via torchvision,fasterrcnn_mobilenet_v3_large_320_fpn,4,False,480,640,39.086008071899414,0,70.114,0.10233841206402886
+YOLOv5 via PyTorch Hub,ultralytics/yolov5,4,False,480,640,32.92847394943237,100.0,71.575,0.24295082767228893
+TensorFlow Lite via tflite_support,efficientdet_lite0.tflite,4,False,480,640,30.488068342208862,0,73.523,1.311988662286697
+TensorFlow Lite via tflite_support w/Coral TPU,efficientdet_lite0_edgetpu.tflite,4,True,480,640,30.049529552459717,100.0,73.036,5.29126420173806
+PyTorch via torchvision,fasterrcnn_mobilenet_v3_large_320_fpn,4,False,480,640,30.41470766067505,100.0,70.114,0.09863648973614417
+YOLOv5 via PyTorch Hub,ultralytics/yolov5,4,False,480,640,34.068405866622925,100.0,71.088,0.23482167117885785
+TensorFlow Lite via tflite_support,efficientdet_lite0.tflite,4,False,480,640,30.616129875183105,0,73.523,1.3391633811049997
+TensorFlow Lite via tflite_support w/Coral TPU,efficientdet_lite0_edgetpu.tflite,4,True,480,640,30.01196575164795,0,73.036,4.198325462672547

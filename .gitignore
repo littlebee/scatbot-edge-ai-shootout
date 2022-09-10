@@ -4,7 +4,7 @@ camera_test_output.avi
 yolov5s.pt
 yolov5/
 data/
-results*.csv
+./results-*.csv
 
 
 # mac things
