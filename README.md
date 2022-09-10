@@ -24,9 +24,29 @@
 
 A place to chronicle performance of various hardware and software solutions for using computer vision and AI at the edge for object detection.
 
+## Disclaimer
+
+I have, to date, received exactly $0.00 in compensation from any company for this work, nor am I seeking any. I overpaid for all of the hardware used herein.
+
 ## The Results
 
 That's why you came here right? Let's cut to the chase.
+
+<img src="https://github.com/littlebee/scatbot-edge-ai-shootout/blob/main/docs/images/pi4b4gb_results/pi4b4gb_chart.png"
+     alt="Raspberry Pi 4 4GB Results Chart"
+     style="margin: 30px;" />
+
+The chart above is sorted by model first because, as it turns out, the **model almost matters more** than the framework for performance! Look, for example, at the left two clusters which represent the throughput of the two models that are included with the official [TensorFlow Lite Example for Raspbery Pi 4](https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/raspberry_pi). The first cluster is the model compiled for use with the Coral USB coprocessor; the second is the model without TPU support. Looking at those first two clusters you might conclude that the Coral coprocessor is worthless until there is downward CPU pressure. With the right model from the [Coral object detection models web page](https://coral.ai/models/object-detection/), the Coral TPU is definitely worth the money if you are looking for greater than 15 FPS and is also the only option I've found so far capable of that on an Pi 4b.
+
+<img src="https://github.com/littlebee/scatbot-edge-ai-shootout/blob/main/docs/images/pi4b4gb_results/pi4b4gb_rollup.png"
+     alt="Raspberry Pi 4 4GB Results Rollup"
+     style="margin: 30px;" />
+
+You can also see a nice resistance to downward CPU pressure provided by the Coral TPU.
+
+The [Google Sheet for the Pi 4b w/GB](https://docs.google.com/spreadsheets/d/1LXBu7aTxJHfXpfTashEkwpSy_eArMZYGN5jX-iU5H9I/edit?usp=sharing) has the individual run data including a few details, like peak CPU temperature. It also turns out that a [fan is kinda necessary](https://docs.google.com/spreadsheets/d/1OunzVdvjCsR7pb2HZ-KAyl6a1l6dVf1urdRFchbyeJE/edit?usp=sharing) when stressing the Pi's CPU for long periods. 😂
+
+In case you are wondering if upgrading to a Pi 4b w/8GB will improve your performance, [the answer is no](https://docs.google.com/spreadsheets/d/1Hg6KqjM1XklWzadYWLZX_fj89gi2aZGdOFT6RKGLaas/edit?usp=sharing). Put that money towards a Coral TPU.
 
 ## Why?
 
