@@ -16,6 +16,7 @@
     - [TensorFlow Lite via tflite_support](#tensorflow-lite-via-tflite_support)
     - [PyTorch via torchvision](#pytorch-via-torchvision)
     - [YOLOv5 via PyTorch Hub](#yolov5-via-pytorch-hub)
+  - [Hardware and Software Setup](#hardware-and-software-setup)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -73,7 +74,7 @@ cd scatbot-edge-ai-shootout
 
 ### Raspberry Pi 4b
 
-Performance data is provided for both the 4GB and 8GB versions of the Raspberry Pi 4b. All tests are run on the 64 bit version of the Raspian Linux distribution codename Bullseye.
+Performance data is provided for both the 4GB and 8GB versions of the Raspberry Pi 4b. All tests are run on the 64 bit "lite" version of the Raspian Linux distribution codename Bullseye.
 
 See the [setup guide for Raspberry Pi4](https://github.com/littlebee/scatbot-edge-ai-shootout/blob/main/Setup%20Raspberry%20Pi4.md) for more information about how to setup all of the things.
 
@@ -89,12 +90,18 @@ This benchmark uses [TensorFlow Lite](https://www.tensorflow.org/lite/guide) via
 
 The code for init and detecting objects based on the [TensorFlow Lite example for Raspberry PI](https://github.com/tensorflow/examples/blob/5d3579cb1057d31c260be4289a32ebc0a91782e0/lite/examples/object_detection/raspberry_pi/detect.py).
 
-Results are provided for both the models used in the above TensorFlow Lite example and for the best performing models I've found with Coral support from the from https://coral.ai/models/object-detection/. MobileNet V1 quantized model from Coral is one of two from that list of models that actually works on the Pi 4 via tflite_support. The models listed as "New" on the Coral models web page were not compiled with metadata and will not load via tflite_support.
+Results are provided for both the models used in the above TensorFlow Lite example and for the best performing models I've found with Coral support from the from https://coral.ai/models/object-detection/. MobileNet V1 quantized model from Coral is one of two from that list of models that actually works on the Pi 4 via tflite_support. The models listed as "New" on the Coral models web page were not compiled with metadata and will not load via tflite_support without modification, but the the ones I was able to test, have the same relative performance to [Coral's published performance](https://coral.ai/docs/edgetpu/benchmarks/). MobileNet V1 and V2 are closer in performance and it was V1 that had the better average over 10 runs.
 
 ### PyTorch via torchvision
 
-This benchmark uses [PyTorch](https://pytorch.org/) via the [torchvision](https://pytorch.org/vision/stable/index.html) library.
+This benchmark uses [PyTorch](https://pytorch.org/) via the [torchvision](https://pytorch.org/vision/stable/index.html) library. I tried [several different models](https://github.com/littlebee/scatbot-edge-ai-shootout/blob/1715caa4220fce76a436aedef3a6942357299da2/benchmark-pytorch.py#L30) from `torchvision.models.detection`. By far the fastest and also the most accurate was `fasterrcnn_mobilenet_v3_large_320_fpn`. You can manually run one of the other models using, for example `./benchmark-pytorch --model fasterrcnn_resnet50_fpn`.
 
 ### YOLOv5 via PyTorch Hub
 
 The YOLOv5 benchmark uses YOLO (you only look once) version 5 via PyTorch Hub. The time to download the yolo model and weights are one time costs and are not included in the FPS measurement.
+
+## Hardware and Software Setup
+
+Consult the [setup.sh script](https://github.com/littlebee/scatbot-edge-ai-shootout/blob/main/setup.sh) in the root of the project directory for information on how the various software was installed.
+
+You can also use the setup.sh script to setup a freshly flashed Bullseye 64bit OS Lite. See [the setup doc](https://github.com/littlebee/scatbot-edge-ai-shootout/blob/main/Setup%20Raspberry%20Pi4.md) for more details and alternate install methods.
