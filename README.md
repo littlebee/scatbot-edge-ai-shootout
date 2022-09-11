@@ -67,7 +67,7 @@ For the application at hand, it does us little good to know how fast we can read
 
 What we really need for most robotics applications is to know many frames per second (FPS) we can acquire the image from the camera, convert it to whatever format is needed by the ML framework or model, and invoke the ML model to produce an array of bounding coordinates as numbers, the classification label as string, and the confidence as a float value. How much time it takes to convert the data and produce the required output are very relevant to the application and are reflected in the results. The benchmarks measure and report the _overall_ FPS including pre and post processing.
 
-For the capturing video, all of the benchmarks use [OpenCV](https://opencv.org/) to acquire the image from the camera. For the results above, all results were measured using the official Raspberry Pi 4 Camera Module and ribbon cable connection.
+For the capturing video, all of the benchmarks use [OpenCV](https://opencv.org/) to acquire the image from the camera. For the results above, all results were measured using the official Raspberry Pi 4 Camera Module and ribbon cable connection. This means that **the upper limit FPS for any object detection is 30 FPS**. Additionally, all benchmarks are **using a 640x480 captured image**. No scaling is done for any of the benchmarks. Past experience with performance of this tells me there is overhead with downscaling the image that rarely gets recovered by using a smaller image.
 
 There is [a test provided](https://github.com/littlebee/scatbot-edge-ai-shootout/blob/main/debug/test-camera.py) to see how fast openCV is able to read from the camera without object detection. Spoiler: with almost every configuration and camera, including USB, this test is going to report just under 30 frames per second.
 
@@ -76,6 +76,10 @@ It is also relevant to robotics applications to know how many FPS the object det
 ### Shell Script & Individual Python Benchmark Scripts
 
 Instead of using Python to run all of the benchmarks, we use a BASH script (benchmarks.sh in repo root) to run the individual, stand alone Python scripts. This is intended to isolate each benchmark by causing a new python process to instantiate. Any effects, memory leaks, GC, etc from one benchmark should not effect any other benchmark.
+
+Each benchmark (framework + model) is run 10 times for 30 seconds with a 20 second rest between each benchmark. After every 10 runs of each, a background process is spawned that consumes 100% of one core or 25% of the overall CPU availability on a 4 core processor such as the Raspberry Pi 4.
+
+See the [benchmarks.sh script](https://github.com/littlebee/scatbot-edge-ai-shootout/blob/main/benchmarks.sh) for more information.
 
 #### Run all benchmarks:
 
