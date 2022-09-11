@@ -9,9 +9,9 @@ If you trust me (Why would you??), and accept my 100% assurance that I didn't (w
 1. Insert an SSD card >= 16GB into your computer and "Select drive" in Etcher
 1. Flash!
 
-When Etcher finishes flashing and verifying -- it will take a while, it will eject the SSD on Mac. Remount (unplug and replug) SDD card so you can see the "boot" folder.
+When Etcher finishes flashing and verifying -- it will take a while, it may eject the SSD on Mac. Remount (unplug and replug) SDD card so you can see the "boot" folder in Explorer.
 
-In the /boot folder on the SDD, add a file named `wpa_supplicant.conf` with the following information:
+In the /boot folder on the SSD, add a file named `wpa_supplicant.conf` with the following information replacing "YOUR\_..." with your wifi name and password:
 
 ```
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -59,11 +59,12 @@ Start with Raspian Bullseye OS LITE 64 without desktop. When installing without 
      alt="Raspberry Pi Imager"
      style="float: left; margin-right: 10px;" />
 
-Once you've signed in via ssl to your newly built raspbian OS,
+Once you've signed in via ssh to your newly built Raspbian Bullseye OS,
 
 ```
-#sudo apt-get update
-#sudo apt-get -y upgrade
+sudo apt-get update
+sudo apt-get -y upgrade
+
 sudo apt install -y git
 git clone https://github.com/littlebee/scatbot-edge-ai-shootout.git
 cd scatbot-edge-ai-shootout
