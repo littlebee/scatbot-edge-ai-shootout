@@ -37,7 +37,11 @@ That's why you came here right? Let's cut to the chase.
      alt="Raspberry Pi 4 4GB Results Chart"
      style="margin: 30px;" />
 
-The chart above is sorted by model first because, as it turns out, the **model almost matters more** than the framework for performance! Look, for example, at the left two clusters which represent the throughput of the two models that are included with the official [TensorFlow Lite Example for Raspbery Pi 4](https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/raspberry_pi). The first cluster is the model compiled for use with the Coral USB coprocessor; the second is the model without TPU support. Looking at those first two clusters you might conclude that the Coral coprocessor is worthless until there is downward CPU pressure. With the right model from the [Coral object detection models web page](https://coral.ai/models/object-detection/), the Coral TPU is definitely worth the money if you are looking for greater than 15 FPS and is also the only option I've found so far capable of that on an Pi 4b.
+### The model matters
+
+The chart above is grouped by model first because, as it turns out, the **model almost matters more** than the framework for performance!
+
+Look, for example, at the left two clusters which represent the throughput of the two models that are included with the official [TensorFlow Lite Example for Raspbery Pi 4](https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/raspberry_pi). The first cluster is the model compiled for use with the Coral USB coprocessor; the second is the model without TPU support. Looking at those first two clusters you might conclude that the Coral coprocessor is worthless until there is downward CPU pressure. With the right model from the [Coral object detection models web page](https://coral.ai/models/object-detection/), the Coral TPU is definitely worth the money if you are looking for greater than 15 FPS and is also the only option I've found so far capable of that on an Pi 4b.
 
 <img src="https://github.com/littlebee/scatbot-edge-ai-shootout/blob/main/docs/images/pi4b4gb_results/pi4b4gb_rollup.png"
      alt="Raspberry Pi 4 4GB Results Rollup"
@@ -45,7 +49,11 @@ The chart above is sorted by model first because, as it turns out, the **model a
 
 You can also see a nice resistance to downward CPU pressure provided by the Coral TPU.
 
+### The raw data
+
 The [Google Sheet for the Pi 4b w/GB](https://docs.google.com/spreadsheets/d/1LXBu7aTxJHfXpfTashEkwpSy_eArMZYGN5jX-iU5H9I/edit?usp=sharing) has the individual run data including a few details, like peak CPU temperature. It also turns out that a [fan is kinda necessary](https://docs.google.com/spreadsheets/d/1OunzVdvjCsR7pb2HZ-KAyl6a1l6dVf1urdRFchbyeJE/edit?usp=sharing) when stressing the Pi's CPU for long periods. 😂
+
+### What about the Pi 4 w/8GB
 
 In case you are wondering if upgrading to a Pi 4b w/8GB will improve your performance, [the answer is no](https://docs.google.com/spreadsheets/d/1Hg6KqjM1XklWzadYWLZX_fj89gi2aZGdOFT6RKGLaas/edit?usp=sharing). Put that money towards a Coral TPU.
 
@@ -125,7 +133,7 @@ This benchmark uses [PyTorch](https://pytorch.org/) via the [torchvision](https:
 
 ### YOLOv5 via PyTorch Hub
 
-The YOLOv5 benchmark uses YOLO (you only look once) version 5 via PyTorch Hub. The time to download the yolo model and weights are one time costs and are not included in the FPS measurement.
+The YOLOv5 benchmark uses [YOLO (you only look once) version 5](https://github.com/ultralytics/yolov5) via PyTorch Hub. The time to download the yolo model and weights are one time costs and are not included in the FPS measurement.
 
 ## Hardware and Software Setup
 

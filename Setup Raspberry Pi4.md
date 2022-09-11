@@ -59,7 +59,7 @@ Start with Raspian Bullseye OS LITE 64 without desktop. When installing without 
      alt="Raspberry Pi Imager"
      style="float: left; margin-right: 10px;" />
 
-Once you've signed in via ssh to your newly built Raspbian Bullseye OS,
+Once you've signed in via ssh to your newly flashed Raspbian Bullseye OS,
 
 ```
 sudo apt-get update
